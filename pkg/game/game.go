@@ -159,7 +159,7 @@ func LoadGame(desc string, path string) (Game, error) {
 
 	mediaCache := NewMediaCache()
 
-	err = mediaCache.fetchMedia(path)
+	err = mediaCache.fetchGameAndMedia("/var/lib/panorama/games/minetest_game",path)
 	if err != nil {
 		return Game{}, err
 	}

@@ -32,6 +32,12 @@ func NewMediaCache() *MediaCache {
 	}
 }
 
+func (m *MediaCache) fetchGameAndMedia(gamepath string, path string) error {
+        m.fetchMedia(path)
+        m.fetchMedia(gamepath)
+        return nil
+}
+
 func (m *MediaCache) fetchMedia(path string) error {
 	return filepath.WalkDir(path, func(path string, d fs.DirEntry, err error) error {
 		if !d.Type().IsRegular() {
